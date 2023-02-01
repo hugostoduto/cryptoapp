@@ -4,7 +4,7 @@ import { Row, Card, Col, Input } from "antd";
 import { Link } from "react-router-dom";
 import { useGetCryptosQuery } from "../services/cryptoApi";
 
-const Cryptocurrencies = (simplified, search) => {
+const Cryptocurrencies = ({ simplified }) => {
   const count = simplified === true ? 10 : 100;
   const { data: cryptoList, isFetching } = useGetCryptosQuery(count);
   const [cryptos, setCryptos] = useState([]);
@@ -21,7 +21,7 @@ const Cryptocurrencies = (simplified, search) => {
   if (isFetching) return "loading...";
   return (
     <>
-      {search && (
+      {!simplified && (
         <div className="search-crypto">
           <Input
             placeholder="Search Cryptocurrency"

@@ -15,6 +15,9 @@ export const cryptoApi = createApi({
     getCryptos: bilder.query({
       query: (count) => createRequest(`/coins?limit=${count}`),
     }),
+    getCryptoDetails: bilder.query({
+      query: (coinId, timeperiod) => createRequest(`coin/${coinId}`),
+    }),
   }),
 });
-export const { useGetCryptosQuery } = cryptoApi;
+export const { useGetCryptosQuery, useGetCryptoDetailsQuery } = cryptoApi;

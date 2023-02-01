@@ -10,7 +10,7 @@ import {
 export default () => (
   <Routes>
     <Route path="/" element={<Homepage />} />
-    <Route path="/exchange" element={<Exchange />} />
+    <Route path="/exchanges" element={<Exchange />} />
     <Route path="/cryptocurrencies" element={<Cryptocurrencies />} />
     <Route path="/cryptodetails" element={<CryptoDetails />} />
     <Route path="/crypto/:coinId" element={<CryptoDetails />} />

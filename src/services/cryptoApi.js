@@ -11,16 +11,18 @@ const createRequest = (url) => ({ url, headers: cryptoApiHeaders });
 export const cryptoApi = createApi({
   reducerPath: "cryptoApi",
   baseQuery: fetchBaseQuery({ baseUrl }),
-  endpoints: (bilder) => ({
-    getCryptos: bilder.query({
+  endpoints: (builder) => ({
+    getCryptos: builder.query({
       query: (count) => createRequest(`/coins?limit=${count}`),
     }),
-    getCryptoDetails: bilder.query({
+    getCryptoDetails: builder.query({
       query: (coinId) => createRequest(`coin/${coinId}`),
     }),
-    getCryptoHistory: bilder.query({
-      query: (coinId, timeperiod) =>
-        createRequest(`coin/${coinId}/history/${timeperiod}`),
+    getCryptoHistory: builder.query({
+      query: ({ coinId, timeperiod }) =>
+        createRequest(
+          `coin/?referenceCurrencyUuid=yhjMzLPhuIDl&timePeriod=30d`
+        ),
     }),
   }),
 });

@@ -9,7 +9,6 @@ const Cryptocurrencies = ({ simplified }) => {
   const count = simplified === true ? 10 : 100;
   const { data: cryptoList, isFetching } = useGetCryptosQuery(count);
   const [cryptos, setCryptos] = useState([]);
-  console.log(cryptos);
   const [searchTerm, setSearchTerm] = useState("");
 
   useEffect(() => {
@@ -41,7 +40,7 @@ const Cryptocurrencies = ({ simplified }) => {
           >
             <Link to={`/crypto/${currency.uuid}`}>
               <Card
-                title={`${currency.rank} . ${currency.name}`}
+                title={`${currency.rank}. ${currency.name}`}
                 extra={
                   <img
                     className="crypto-image"
@@ -52,7 +51,7 @@ const Cryptocurrencies = ({ simplified }) => {
                 hoverable
               >
                 <p>Price: {millify(currency.price)}</p>
-                <p>mMrket Cap: {millify(currency.marketCap)}</p>
+                <p>Market Cap: {millify(currency.marketCap)}</p>
                 <p>Daily Change: {millify(currency.change)}%</p>
               </Card>
             </Link>
